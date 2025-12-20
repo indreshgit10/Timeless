@@ -1,6 +1,6 @@
 Timeless, MERN Stack eCommerce Project
 
-Timeless is a full-stack eCommerce web application currently in development. It is built using the MERN stack, which includes MongoDB, Express.js, React.js, and Node.js.
+Timeless is a full-stack eCommerce web application currently in development. It is built using the MERN stack.
 
 This project serves as a long-term learning effort with a strong emphasis on backend development, database design, and real-world eCommerce processes.
 
