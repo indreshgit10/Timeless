@@ -1,33 +1,31 @@
 import React, { useState } from "react";
+import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { Routes, Route } from "react-router-dom";
-import Add from "./pages/Add";
-import List from "./pages/List";
-import Orders from "./pages/Orders";
-import Login from "./components/Login";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(
+    localStorage.getItem("token") || ""
+  );
 
-  if (token === "") {
-    return <Login />;
-  }
   return (
     <div className="bg-gray-50 min-h-screen">
+      {}
+      <ToastContainer position="top-right" autoClose={3000} />
 
-      <Navbar />
-      <hr />
-      <div className="flex w-full">
-        <Sidebar />
-        <div className="w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base">
-          <Routes>
-            <Route path="/Add" element={<Add />} />
-            <Route path="/List" element={<List />} />
-            <Route path="/Orders" element={<Orders />} />
-          </Routes>
-        </div>
-      </div>
+      {!token ? (
+        <Login setToken={setToken} />
+      ) : (
+        <>
+          <Navbar setToken={setToken} />
+          <div className="flex">
+            <Sidebar />
+            {}
+          </div>
+        </>
+      )}
     </div>
   );
 };
